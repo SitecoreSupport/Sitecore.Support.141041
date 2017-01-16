@@ -17,8 +17,6 @@ namespace Sitecore.Support.Pipelines.HttpRequest
             {
                 if (args.Context.Request.Cookies["sc_lang"] == null || String.IsNullOrEmpty(args.Context.Request.Cookies["sc_lang"].Value))
                 {
-                    Language.TryParse(Settings.DefaultLanguage, out result);
-                    Context.Language = result;
                     return;
                 }
                 Language.TryParse(args.Context.Request.Cookies["sc_lang"].Value, out result);
