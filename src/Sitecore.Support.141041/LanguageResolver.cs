@@ -15,7 +15,7 @@ namespace Sitecore.Support.Pipelines.HttpRequest
             Language languageFromRequest = this.GetLanguageFromRequest(args.Context.Request);
             if (languageFromRequest == null)
             {
-                if (args.Context.Request.Cookies["sc_lang"] == null || String.IsNullOrEmpty(args.Context.Request.Cookies["sc_lang"].Value))
+                if (args.Context.Request.Cookies["sc_lang"] == null || String.IsNullOrEmpty(args.Context.Request.Cookies["sc_lang"].Value) || Sitecore.Context.Site.Name != "shell")
                 {
                     return;
                 }
